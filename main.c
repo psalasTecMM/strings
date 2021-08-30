@@ -44,7 +44,7 @@ int main(int argc, char **argv)
         break;
       }
       case 'o':{
-        scanf("%s %c %c %c",w,a,b,d);
+        scanf("%s %c %c %c",w,&a,&b,&d);
         printf("%d %d %d",occurrences(a,w),occurrences(b,w),occurrences(d,w));
         break;
       }

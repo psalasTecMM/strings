@@ -32,6 +32,3 @@ $(target): $(objects)
 
 %.o : %.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< $(OUTPUT_OPTION)
-
-%.o : %.cpp
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< $(OUTPUT_OPTION)
