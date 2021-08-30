@@ -19,7 +19,7 @@ int main(int argc, char **argv)
       }
       case 'l':{
         scanf("%s %s",w,v);
-        printf("%s %s", len(w),len(v));
+        printf("%d %d", len(w),len(v));
         break;
       }
       case 'c': {
