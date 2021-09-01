@@ -37,8 +37,5 @@ build
 # Execs
 strings
 
-# main file
-main.c
-
 # Mac OS Files
 .DS_Store

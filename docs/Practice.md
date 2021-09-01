@@ -73,6 +73,53 @@ say that the strings are **equal** <img style="transform: translateY(0.1em); bac
 
 The student must create each of the operations described above as a function. The student should properly document any alternative solution.
 
+### Files
+The student must create a header file for function prototypes and a source file for function implementations.
+
+The header file with extension ***.h*** should look like:
+
+```c
+#ifndef NAME_H //The student should change NAME for the file name
+#define NAME_H
+
+/*
+* C prototypes
+* Example
+*/
+
+/* Sum prototype, it takes two int arguments and
+returns an int
+*/
+int sum (int,int); 
+
+...
+#endif
+```
+
+The source file with extension ***.c*** should look like:
+
+```c
+#include "name.h" //Importing the header file
+/* Sum implementation, it takes two int arguments and returns an int
+*/
+int sum (int a,int b){
+    return a+b; 
+}
+...
+```
+The student must also modify the main.c file by importing the header file:
+
+```c
+#include <unistd.h> 
+#include <stdio.h> 
+#include <stdlib.h>
+// Add your library file
+// Example: #include "strings.h"
+#include "name.h" //Importing the header file
+...
+```
+
+### Funtions
 The student must create each function using the following prototypes.
 
 ### Alphabet function prototype: 
@@ -156,17 +203,14 @@ int equal(char* w,char* v);
 
 ## Implementation Language: 
 
-The programming language to use is either C or C++.
+The programming language to use is C.
 
-- The use of libraries for string manipulation such as ***string.h***, ***cstring*** or others, is restricted.
+- The use of libraries for string manipulation such as string.h or others, is restricted.
 
 - The use of the string data type is restricted
 
 - Each function must be developed from scratch, using only control
     statements and data structures.
-
-    -   The student could use data structures from C++ such as set,
-        vector, map, list, stack, queue etc.
 
 -   The student must use memory management correctly:
 
@@ -174,25 +218,21 @@ The programming language to use is either C or C++.
         ```c
         char* result = (char*)malloc(10*sizeof(char));
         ```
+    - To create a memory slot of 10 pieces of 1 byte in C use `calloc`.
+        ```c
+        char* result = (char*)calloc(10*sizeof(char));
+        ```
 
     -   To delete a memory space in C use `free`
         ```c
         free(result);
         ```
 
-    -   To create a memory slot in C++ use `new`
-        ```c
-        char* result = new char[10];
-        ```
-
-    -   To delete a memory slot in C++ use `delete`
-        ```c
-        delete[] result;
-        ```
-
 ## Evaluation requirements 
 
 1.  **Verification**: The functions will be tested automatically in Github using unit tests. It will be expected to pass all the test cases; otherwise, the grade will be lower.
+
+1. ***Feedback***: The student will get feedback about the code at all time, it is recommended to address the comments since the grade could be higher.
 
 2.  **Report**: The student must elaborate a report with the format seen
     in the first class. The student should report
@@ -200,6 +240,34 @@ The programming language to use is either C or C++.
     1.  The decisions made for each section (techniques, data types, data structures, findings, and so on)
 
     2.  The problems that the student faced with the practice and the proposed solutions.
+
+## Testing
+In order to test the code the student could use one of the following approaches:
+
+- Create their own main.c file where they can test the examples below.
+***NOTE: Do not send this main.c file to GitHub since all the tests will fail.***
+
+- Use the provided main.c to compile the code and running the application. To compile the code use
+
+```sh
+gcc main.c name.c -o strings
+```
+
+or
+
+```sh
+make
+```
+
+To run the application use `./strings` follow by an option:
+- `./strings -a` -- Alphabet
+- `./strings -l` -- Length
+- `./strings -c` -- Concatenation 
+- `./strings -p` -- Pow
+- `./strings -i` -- Inverse
+- `./strings -o` -- Occurrences
+- `./strings -e` -- Equality
+
 
 ## Examples 
 
